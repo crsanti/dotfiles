@@ -1,0 +1,33 @@
+global !p
+from my_snippets_helpers import getUsername
+endglobal
+
+###
+# Messages
+###
+
+# Comment
+snippet // "Comment" i
+/* ${1} */
+endsnippet
+
+snippet /* "Multiline comment" b
+/*
+ * ${1}
+ */
+endsnippet
+
+# todo
+snippet TODO "TODO" b
+/* TODO: (`!p snip.rv = getUsername()` `echo 'console.log(new Date().toLocaleString("es-ES"))' | node`) ${1}  */
+endsnippet
+
+# fixme
+snippet fixme "FIXME" b
+/* FIXME: (`!p snip.rv = getUsername()` `echo 'console.log(new Date().toLocaleString("es-ES"))' | node`) ${1} */
+endsnippet
+
+# hack
+snippet hack "HACK" b
+/* HACK: (`!p snip.rv = getUsername()` `echo 'console.log(new Date().toLocaleString("es-ES"))' | node`) ${1} */
+endsnippet

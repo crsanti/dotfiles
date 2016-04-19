@@ -1,0 +1,494 @@
+extends javascript-jsdoc
+extends javascript-jquery
+
+global !p
+from my_snippets_helpers import getUsername
+endglobal
+
+###
+# Core
+###
+
+# var
+snippet var "variable declaration" b
+var ${1} = ${2}
+endsnippet
+
+# if
+snippet if "if" b
+if (${1}) {
+	${2}
+}
+endsnippet
+
+# if else
+snippet ife "if else" b
+if (${1}) {
+	${2}
+} else {
+	${3}
+}
+endsnippet
+
+# ternary if
+snippet ? "ternary opperation" i
+(${1:condition}) ? ${2:true} : ${3:false}
+endsnippet
+
+# switch
+snippet switch "switch structure" b
+switch (${1:expression}) {
+	case ${3}:
+		${4}
+		break;
+	${5}
+	default:
+		${2}
+}
+endsnippet
+
+# case
+snippet case "switch case" b
+case ${1:case}:
+	{$2}
+	break;
+endsnippet
+
+# for loop
+snippet for "for c to a.length" b
+for (var ${1:i} = 0; $1 < ${2:arr}.length; $1++) {
+	${3}
+}
+endsnippet
+
+# for loop cached length
+snippet forl "for c and length" b
+for (var ${1:i} = 0; ${2:len} = ${3:arr}.length; $1 < $2; $1++) {
+	${4}
+}
+endsnippet
+
+# reversed for loop
+snippet forr "reversed for loop" b
+for (var ${1:i} = ${2:arr}.length -1; $2 >= 0; $2--) {
+	${3}
+}
+endsnippet
+
+# for in loop
+snippet fori "for a in b" b
+for (${1:prop} in ${2:obj}) {
+	${3}
+}
+endsnippet
+
+# while loop
+snippet wh "while loop" b
+while (${1:condition}) {
+	${2}
+}
+endsnippet
+
+# do while loop
+snippet dw "do while loop" b
+do {
+	${2}
+} while (${1:condition});
+endsnippet
+
+# anonymous function
+snippet f "function" w
+function (${1}) {
+	${2}
+}
+endsnippet
+
+# named function
+snippet fun "named function" b
+function ${1:func}(${2}) {
+	${3}
+}
+endsnippet
+
+# immediately invoked function expression
+snippet iife "immediately invoked function expression" b
+(function(${1}){
+	${2}
+}($1));
+endsnippet
+
+# function assigned to a variable
+snippet vaf "var = function" b
+var ${1:fun} = function(${2}) {
+	${3}
+};
+endsnippet
+
+# throw Error
+snippet terror "throw new Error" b
+throw new Error('${1:message}');
+endsnippet
+
+# snippet
+snippet ret "return" b
+return ${1:var};
+endsnippet
+
+# function class
+snippet fclass "ES5 Class" b
+var ${1:Class} = (function(){
+	// Constructor
+	function $1(${2}){
+		${3}
+	}
+
+	return $1;
+})();
+endsnippet
+
+# `!p snip += '\n\t'.join('this.'+x.strip()+' = '+ x.strip()+';' for x in t[1].split(',') if x)`
+# Prueba
+
+# hasOwnProperty
+snippet has "hasOwnProperty" i
+hasOwnProperty(${1})
+endsnippet
+
+# key: value
+snippet kv "{key: value}" i
+	${1}: ${2}
+endsnippet
+
+# prototype method
+snippet proto "Class.prototype.method" b
+${1:Class}.prototype.${2:method} = ${3};
+endsnippet
+
+# JSON.parse
+snippet jsonp "JSON.parse" i
+JSON.parse(${1:string});
+endsnippet
+
+# JSON.stringify
+snippet jsons "JSON.stringify" i
+JSON.stringify(${1:obj});
+endsnippet
+
+###
+# DOM
+###
+
+# getElementById
+snippet geti "document.getElementById" i
+${1:document}.getElementById('${2}')
+endsnippet
+
+# getElementsByName
+snippet getn "document.getElementsByName" i
+${1:document}.getElementsByName('${2}')
+endsnippet
+
+# getElementsByTagName
+snippet gett "document.getElementsByTagName" i
+${1:document}.getElementsByTagName('${2}')
+endsnippet
+
+# getElementsByClassName
+snippet getc "document.getElementsByClassName" i
+${1:document}.getElementsByClassName('${2}')
+endsnippet
+
+# Query selector
+snippet qs "document.querySelector" i
+${1:document}.querySelector('${2}')
+
+# addEventListener
+snippet adde "element.addEventListener" i
+${1:element}.addEventListener('${2}', ${3}, ${4:false});
+endsnippet
+
+# event.preventDefault
+snippet prevent "event.preventDefault" b
+${1:event}.preventDefault();
+endsnippet
+
+# event.stopPropagation
+snippet stoppro "event.stopPropagation" b
+${1:event}.stopPropagation();
+endsnippet
+
+# setAttribute
+snippet seta "element.setAttribute" i
+${1:element}.setAttribute('${2}', '${3}');
+endsnippet
+
+# getAttribute
+snippet geta "element.getAttribute" i
+${1:element}.getAttribute('${2}');
+endsnippet
+
+###
+# Debugging
+###
+
+# debugger
+snippet de "debugger" b
+debugger;
+endsnippet
+
+# console.log
+snippet cl "console.log" b
+console.log(${1});
+endsnippet
+
+# console.error
+snippet ce "console.error" b
+console.error(${1});
+endsnippet
+
+# console.warn
+snippet cw "console.warn" b
+console.warn(${1});
+endsnippet
+
+# console.trace
+snippet ct "console.trace" b
+console.trace(${1:label});
+endsnippet
+
+# console.info
+snippet ci "console.info"
+console.info(${1});
+endsnippet
+
+# console.debug
+snippet cd "console.debug" b
+console.debug(${1});
+endsnippet
+
+# console.time
+snippet ctime "console.time" b
+console.time(${1:label});
+endsnippet
+
+# console.assert
+snippet ca "console.assert" b
+console.assert(${1:expression}, ${2:obj});
+endsnippet
+
+# console.dir
+snippet cdir "console.dir" b
+console.dir(${1:obj});
+endsnippet
+
+# console.dirxml
+snippet cdirxml "console.dirxml" b
+console.dirxml(${1:obj});
+endsnippet
+
+# console.table
+snippet ctable "console.table" b
+console.table(${1:obj});
+endsnippet
+
+# console.timeStamp
+snippet ctimestamp "console.timeStamp" b
+console.timeStamp(${1:label});
+endsnippet
+
+# 'use strict'
+snippet us "'use strict'" b
+'use strict';
+endsnippet
+
+# setTimeout
+snippet timeout "setTimeout" i
+setTimeout(${2}, ${1:1000});
+endsnippet
+
+# clearTimeout
+snippet clearti "clearTimeout" b
+clearTimeout(${1});
+endsnippet
+
+# setInterval
+snippet interval "setInterval" i
+setInterval(${2}, ${1:1000});
+endsnippet
+
+# clearInterval
+snippet clear "clearInterval" b
+clearInterval(${1});
+endsnippet
+
+
+###
+# Tests
+###
+
+# describe
+snippet desc "Testing 'describe'" b
+describe('${1}', function(${2}){
+	${3}
+});
+endsnippet
+
+# it
+snippet it "Testing 'it'" b
+it('${1}', function(${2}){
+	${3}
+});
+endsnippet
+
+###
+# ES6
+###
+
+# const
+snippet const "constant variable" b
+const ${1} = ${2};
+endsnippet
+
+# let
+snippet let "private variable" b
+let ${1} = ${2};
+endsnippet
+
+# import
+snippet im "import from" b
+import ${1} from '${2}';
+endsnippet
+
+# class
+snippet cla "class" b
+class ${1} {
+	${2}
+}
+endsnippet
+
+# class extends
+snippet clax "class extends" b
+class ${1} extends ${2} {
+	${3}
+}
+endsnippet
+
+# arrow function
+snippet => "=> arrow function" i
+(${1}) => {
+	${2}
+}
+endsnippet
+
+#snippet af "=> arrow function" i
+#(${1}) => {
+#	${2}
+#}
+#endsnippet
+
+# symbol
+snippet sym "Symbol" i
+const ${1} = Symbol('${2}');
+endsnippet
+
+# export default
+snippet ed "export default" b
+export default ${1}
+endsnippet
+
+# ${
+#snippet ${ "Algo raro..." b
+#${${1}}${2}
+#endsnippet
+
+###
+# Node
+###
+
+# #!/usr/bin/env node
+#snippet #! "#!/usr/bin/env node" b
+#!/usr/bin/env node
+#endsnippet
+
+# ex
+snippet ex "module.exports" b
+module.exports = ${1};
+endsnippet
+
+# require
+snippet rq "CommonJS require module" b
+var ${1:module} = require('${2:module}')${3};
+endsnippet
+
+# emit
+snippet emit "emit event" i
+emit('${1:event}', ${2:args});
+endsnippet
+
+#snippet once
+snippet once "emit once" i
+once('${1:event}', function(${2:stream}) {
+	${3}
+});
+endsnippet
+
+## http. User js function snippet as handler
+#snippet http
+#	http.createServer(${1:handler}).listen(${2:port_number});
+
+## net 
+#snippet net
+#	net.createServer(function(${1:socket}){
+#		${1}.on('data', function('data'){
+#		  ${2}
+#		]});
+#		${1}.on('end', function(){
+#		  ${3}
+#		});
+#	}).listen(${4:8124});
+
+# pipe
+snippet pipe "pipe stream" i
+pipe(${1:stream})${2}
+endsnippet
+
+# stdin
+snippet stdin "Node process.stdin" b
+process.stdin
+endsnippet
+
+# stdout
+snippet stdout "Node process.stdout" b
+process.stdout
+endsnippet
+
+# stderr
+snippet stderr "Node process.stderr" b
+process.stderr
+endsnippet
+
+###
+# Express
+###
+
+# app.get
+snippet appget "Express app.get" b
+${1:app}.get('${2:route}', ${3:handler});
+endsnippet
+
+# app.post
+snippet apppost "Express app.post" b
+${1:app}.post('${2:route}', ${3:handler});
+endsnippet
+
+# app.put
+snippet appput "Express app.put" b
+${1:app}.put('${2:route}', ${3:handler});
+endsnippet
+
+# app.delete
+snippet appdel "Express app.delete" b
+${1:app}.delete('${2:route}', ${3:handler});
+endsnippet
+
+

@@ -1,0 +1,120 @@
+
+# multiline comment
+snippet /* "Multiline comment" i
+/* 
+ * ${0}
+ */
+endsnippet
+
+# todo
+snippet todo "TODO" b
+// TODO: (`!p snip.rv = getUsername()` `echo 'console.log(new Date().toLocaleString("es-ES"))' | node`) ${0}
+endsnippet
+
+# fixme
+snippet fixme "FIXME" b
+// FIXME: (`!p snip.rv = getUsername()` `echo 'console.log(new Date().toLocaleString("es-ES"))' | node`) ${0}
+endsnippet
+
+# hack
+snippet hack "HACK" b
+// HACK: (`!p snip.rv = getUsername()` `echo 'console.log(new Date().toLocaleString("es-ES"))' | node`) ${0}
+endsnippet
+
+# Documentation: block
+snippet /**
+/**
+ * ${0:description}
+ */
+endsnippet
+
+# Documentation: author
+snippet @au "JSDoc author"
+@author ${0:`!v g:snips_author_fullname`} [${1:`!v g:snips_author_email`}]${0}
+endsnippet
+
+
+# Documentation: parameter
+snippet @p "JSDoc parameter"
+@param {${1:type}} ${2:name} - ${3:description}.${0}
+endsnippet
+
+# Documentation: type
+snippet @t "JSDoc type"
+@type {${1}}${0}
+endsnippet
+
+# Documentation: constant
+snippet @const "JSDoc constant" 
+@const ${1:{${2:type}}}${0}
+endsnippet
+
+# Documentation: return
+snippet @r "JSDoc return" 
+@return {${1:type}} ${2:description}${0}
+endsnippet
+
+# Documentation: license
+snippet @li "JSDoc license"
+@license ${1:MIT}${0}
+endsnippet
+
+# Documentation: version
+snippet @ver "JSDoc version"
+@version ${1:0.1.0}${0}
+endsnippet
+
+# Documentation: constructor
+snippet @constr "JSDoc constructor"
+@constructor
+endsnippet
+
+# Documentation: class
+snippet @class "JSDoc class"
+@class
+endsnippet
+
+# Documentation: override
+snippet @over "JSDoc override"
+@override
+endsnippet
+
+# Documentation: protected
+snippet @pro "JSDoc protected"
+@protected
+endsnippet
+
+# Documentation: public
+snippet @pu "JSDoc public"
+@public
+endsnippet
+
+# Documentation: private
+snippet @pri "JSDoc private"
+@private
+endsnippet
+
+# Documentation: static
+snippet @sta "JSDoc static"
+@static
+endsnippet
+
+# Documentation: mixin
+snippet @mix "JSDoc mixin"
+@mixin
+endsnippet
+
+# Documentation: link
+snippet @link "JSDoc link"
+{@link ${1}}${0}
+endsnippet
+
+# Documentation: throw
+snippet @throw "JSDoc throw exception"
+@throws ${1:{${2:type}}}${0}
+endsnippet
+
+# Documentation: copyright
+snippet @copy "JSDoc copyright"
+@copyright `!v g:snips_author_fullname` © `date +%Y`
+endsnippet

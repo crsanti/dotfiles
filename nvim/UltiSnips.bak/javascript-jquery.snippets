@@ -1,0 +1,1212 @@
+#######################
+#   jQuery snippets   #
+#######################
+
+###
+# Ajax
+###
+
+# $(document).ajaxComplete
+snippet ajaxc "jQuery ajaxComplete" b
+$(document).ajaxComplete(function(${1:e}, jqXHR, settings) {
+	${0}
+});
+endsnippet
+
+# $(document).ajaxError
+snippet ajaxe "jQuery ajaxError" b
+$(document).ajaxError(function(${1:e}, jqXHR, settings, error){
+	${0}
+});
+endsnippet
+
+# $(document).ajaxSend
+snippet ajaxsend "jQuery ajaxSend" b
+$(document).ajaxSend(function(${1:e}, jqXHR, settings){
+	${0}
+});
+endsnippet
+
+# $(document).ajaxStart
+snippet ajaxstart "jQuery ajaxStart" b
+$(document).ajaxStart(function(){
+	${0}
+});
+endsnippet
+
+# $(document).ajaxStop
+snippet ajaxstop "jQuery ajaxStop" b
+$(document).ajaxStop(function(){
+	${0}
+});
+endsnippet
+
+# $(document).ajaxSuccess
+snippet ajaxsuccess "jQuery ajaxSuccess" b
+$(document).ajaxSuccess(function(${1:e}, jqXHR, settings){
+	${0}
+});
+endsnippet
+
+# $.ajax
+snippet ajax "jQuery ajax" b
+$.ajax({
+	url: '${1:url}',
+	method: '${2:GET/POST}',
+	dataType: '${3:json}',${4:
+	data: ${5:{
+		${6}
+	}},}
+	success: function(${7:data}, textStatus, jqXHR) {
+		${8}
+	},
+	error: function(jqXHR, textStatus, error) {
+		${9}
+	}${10:,
+	complete: function(jqXHR, textStatus) {
+		${11}
+	}}
+});
+endsnippet
+
+# $.ajaxPrefilter
+snippet ajaxpre "jQuery ajaxPrefilter" b
+$.ajaxPrefilter('${1:json html}',function(${2:options}, ${3:originalOptions}, jqXHR){
+	${0}
+});
+endsnippet
+
+# $.ajaxSetup
+snippet ajaxsetup "jQuery ajaxSetup" b
+$.ajaxSetup({
+	${0}
+});
+endsnippet
+
+# $.ajaxTransport
+snippet ajaxtransport "jQuery ajaxTransport" b
+$.ajaxTransport(${1:{${2:json html}}}, function(${2:options}, ${3:originalOptions}, jqXHR){
+	${0}
+});
+endsnippet
+
+# $.get
+snippet ajaxget "jQuery ajax get" i
+$.get('${1:url}', ${2:{${3:params}}}, function(${5:data}, textStatus, jqXHR){
+	${0}
+}${6:, '${7:json}'});
+endsnippet
+
+# $.getJSON
+snippet ajaxgetj "jQuery ajax getJSON" i
+$.getJSON('${1:url}', ${2:{${3:params}}}, function(${4:data}, textStatus, jqXHR){
+	${0}
+});
+endsnippet
+
+# $.getScript
+snippet ajaxscript "jQuery getScript" b
+$.getScript('${1:url}',	function(${2:data}, textStatus, jqXHR){
+	${0}
+});
+endsnippet
+
+# $.param
+snippet param "jQuery param" i
+$.param(${1:{${2:parameters}}});
+endsnippet
+
+# $.post
+snippet ajaxpost "jQuery ajax post" i
+$.post('${1:url}', ${2:{${3:params}}}, function(${5:data}, textStatus, jqXHR){
+	${0}
+}${6:, '${7:json}'});
+endsnippet
+
+# .load
+snippet load "jQuery load" w
+load('${1:url}'${2:, ${3:{${4:data}}}}${5:, function(${6:response}, textStatus, jqXHR){
+	${0}
+}});
+endsnippet
+
+# .serializeArray
+snippet serializeArray "jQuery serializeArray" w
+serializeArray();
+endsnippet
+
+###
+# Attributes
+###
+
+# .addClass
+snippet addc "jQuery addClass" w
+addClass('${1}')${0}
+endsnippet
+
+# .attr
+snippet attr "jQuery attr" w
+attr('${1:attribute}'${2:, ${3:value}})
+endsnippet
+
+# .hasClass
+snippet hasclass "jQuery hasClass" w
+hasClass('${1:class}')
+endsnippet
+
+# .html
+snippet html "jQuery html" w
+html(${1:'${2}'})
+endsnippet
+
+# .prop
+snippet prop "jQuery prop" w
+prop('${1:property}'${2:, '${3:value}'})
+endsnippet
+
+# .removeAttr
+snippet ratt "jQuery removeAttr" w
+removeAttr('${1:attribute}')
+endsnippet
+
+# .removeClass
+snippet rclass "jQuery removeClass" w
+removeClass('${1:class}')
+endsnippet
+
+# .removeProp
+snippet rprop "jQuery removeProp" w
+removeProp('${1:property}')
+endsnippet
+
+# .toggleClass
+snippet tclass "jQuery toggleClass" w
+toggleClass(${1:'${2:class(es)/true/false}'}${3:, ${4:true/false}})
+endsnippet
+
+# .toggleClass - function
+snippet tclass "jQuery toggleClass" w
+toggleClass(${1:function(){
+	${0}
+}}${2:, ${3:true/false}})
+endsnippet
+
+# .val
+snippet val "jQuery value" w
+val(${1:'${2}'})
+endsnippet
+
+###
+# Callbacks Object
+###
+
+
+
+###
+# Core
+###
+
+# $
+snippet $ "jQuery selector snippet"
+$('${1}')${2}
+endsnippet
+
+# $.holdReady
+snippet holdr "jQuery holdReady" b
+$.holdReady(${1})
+endsnippet
+
+# $.noConflict
+snippet noconflict "jQuery noConflict" b
+$.noConflict()
+endsnippet
+
+###
+# CSS
+###
+
+# .css
+snippet css "jQuery css" w
+css(${1:{${2:obj}}}${3:, '${4:value}'})
+endsnippet
+
+# .height
+snippet he "jQuery height" w
+height(${1:value})
+endsnippet
+
+# .innerWidth
+snippet innerw "jQuery innerWidth" w
+innerWidth(${1:value})
+endsnippet
+
+# $.cssHooks
+snippet csshook "jQuery cssHooks" b
+$.cssHooks.${1:style} = {
+	get: function(element, computed, extra) {
+		${2}
+	},
+	set: function(element, value) {
+		${3}
+	}
+};${0}
+endsnippet
+
+# $.cssNumber
+snippet cssnumber "jQuery cssNumber" b
+$.cssNumber.${1:zIndex/fontWeight/opacity/zoom/lineHeight/widows/orphans/fillOpacity/columnCount/order/flexGrow/flexShrink} = ${2:value};
+endsnippet
+
+# .offset
+snippet offset "jQuery offset" w
+offset(${1:{top: ${2}, left: ${3}}})
+endsnippet
+
+# .outerHeight
+snippet outerh "jQuery outerHeight" w
+outerHeight(${1:true/false/value})
+endsnippet
+
+# .outerWidth
+snippet innerw "jQuery innerWidth" w
+outerWidth(${1:value})
+endsnippet
+
+# .position
+snippet pos "jQuery position" w
+position()
+endsnippet
+
+# .scrollLeft
+snippet scrolll "jQuery scrollLeft" w
+scrollLeft(${1:value})
+endsnippet
+
+# .scrollTop
+snippet scrollt "jQuery scrollTop" w
+scrollTop(${1:value})
+endsnippet
+
+# .width
+snippet wi "jQuery width" w
+width(${1:value})
+endsnippet
+
+
+###
+# Data
+###
+
+# .clearQueue
+snippet clearq "jQuery clearQueue" w
+clearQueue(${1:queueName})
+endsnippet
+
+# $.data
+snippet jqdata "jQuery data" i
+$.data(${1:{${2:obj}}})
+endsnippet
+
+snippet jqdata "jQuery data" i
+$.data('${1:key}'${2:, '${3:value}'})
+endsnippet
+
+# .dequeue
+snippet deq "jQuery dequeue" w
+dequeue(${1:queueName})
+endsnippet
+
+# $.hasData
+snippet hasdata "jQuery hasData" i
+$.hasData(${1:element})
+endsnippet
+
+# .queue
+snippet jqque "jQuery queue" i
+$.queue(${1:element}${2:, ${3:queueName}}${4:, newQueue/callback})
+endsnippet
+
+# $.removeData
+snippet jqrdata "jQuery removeData" b
+$.removeData(${1:element}${2:, ${3:data}})
+endsnippet
+
+# .queue
+snippet queue "jQuery queue" w
+queue(${1:queueName}${2:, ${3:newQueue/callback}})
+endsnippet
+
+# .removeData
+snippet rdata "jQuery removeData" w
+removeData(${1:element}${2:, ${3:data}})
+endsnippet
+
+###
+# Deferred Objects
+###
+
+# $.when
+snippet jqwhen "jQuery when" b
+$.when(${1:obj/ajax/function}).${2:then/done}(function(${3:data}){
+	${4}
+})
+endsnippet
+
+# .always
+snippet alw "jQuery deferred always" w
+always(function(){
+	${1}
+}${2})${0}
+endsnippet
+
+# .done
+snippet done "jQuery deferred done" w
+done(function(){
+	${1}
+}${2})${0}
+endsnippet
+
+# .fail
+snippet fail "jQuery deferred fail" w
+fail(function(){
+	${1}
+}${2})${0}
+endsnippet
+
+# .notify
+snippet noti "jQuery deferred notify" w
+notify(${1:args})
+endsnippet
+
+# .notifyWidth
+snippet notiw "jQuery deferred notifyWidth" w
+notifyWith(${1:context}${2:, ${3:args}})
+endsnippet
+
+# .progress
+snippet prog "jQuery deferred progress" w
+progress(function(){
+	${1}
+}${2})${0}
+endsnippet
+
+# .promise
+snippet prom "jQuery deferred promise" w
+promise(${1:target})
+endsnippet
+
+# .reject
+snippet rej "jQuery deferred reject" w
+reject(${1:args})
+endsnippet
+
+# .rejectWith
+snippet rejw "jQuery deferred rejectWith" w
+rejectWith(${1:context}${2:, ${3:args}})
+endsnippet
+
+# .resolve
+snippet res "jQuery deferred resolve" w
+resolve(${1:args})
+endsnippet
+
+# .resolveWith
+snippet resw "jQuery deferred resolveWith" w
+resolveWith(${1:context}${2:, ${3:args}})
+endsnippet
+
+# .state
+snippet state "jQuery deferred state" w
+state()
+endsnippet
+
+# .then
+snippet then "jQuery deferred then" w
+then(function(${1:data}){
+	${2}
+}${3:, ${4:failFilter}}${5:, ${6:progressFilter}})
+endsnippet
+
+# $.Deferred
+snippet jqDef "jQuery deferred Deferred" i
+$.Deferred(${1:deferred})
+endsnippet
+
+# .when
+snippet when "jQuery when" w
+when(${1:deferreds})
+endsnippet
+
+# .promise
+snippet prom "jQuery deferred promise" w
+promise(${1:'fx'}, ${2:{${3:obj}}})
+endsnippet
+
+###
+# Effects
+###
+
+# .animate
+snippet animate "jQuery animate" w
+animate(${1:{${2:properties}}}, ${3:1000}${4:, '${5:easing}'}${6:, function(){
+	${0}
+}});
+endsnippet
+
+# .delay
+snippet delay "jQuery delay" w
+delay(${1:1000}${2:, ${3:queueName}})
+endsnippet
+
+# .fadeIn
+snippet fadei "jQuery fadeIn" w
+fadeIn(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# .fadeOut
+snippet fadeo "jQuery fadeOut" w
+fadeOut(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# .fadeTo
+snippet fadeto "jQuery fadeTo" w
+fadeTo(${1:1000}, ${2:opacity}${3:, '${4:easing}'}${5:, function(){
+	${6}
+}})
+endsnippet
+
+# .fadeToggle
+snippet fadetog "jQuery fadeToggle" w
+fadeToggle(${1:1000}, ${2:opacity}${3:, '${4:easing}'}${5:, function(){
+	${6}
+}})
+endsnippet
+
+# .finish
+snippet finish "jQuery finish" w
+finish(${1:queue})
+endsnippet
+
+# .hide
+snippet hide "jQuery hide" w
+hide(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# $.speed
+snippet jqspeed "jQuery speed" w
+$.speed(${1:1000}${2:, ${3:{${4:settings}}}}${5:, function(){
+	${6}
+}})
+endsnippet
+
+# .show
+snippet show "jQuery show" w
+show(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# .slideDown
+snippet slido "jQuery slideDown" w
+slideDown(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# .slideToggle
+snippet slideto "jQuery slideToggle" w
+slideToggle(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# .slideUp
+snippet slidu "jQuery slideUp" w
+slideUp(${1:1000}${2:, function(){
+	${3}
+}})
+endsnippet
+
+# .stop
+snippet stop "jQuery stop" w
+stop('${1:queue}'${2:, ${3:true/false}}${4:, ${5:true/false}})
+endsnippet
+
+# .toggle
+snippet toggle "jQuery toggle effect" w
+toggle(${1:1000}${2:, '${3:easing}'}${4:, function(){
+	${5}
+}})
+endsnippet
+
+###
+# Events
+###
+
+# .bind
+snippet bind "jQuery event bind" w
+bind('${1:event}'${2:, ${2:eventData}}${3:, function(${4}){
+	${5}
+}})${0}
+endsnippet
+
+# .blur
+snippet blur "jQuery event blur" w
+blur(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .change
+snippet change "jQuery event change" w
+blur(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+
+endsnippet
+
+# .click
+snippet click "jQuery event click" w
+click(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+
+endsnippet
+
+# .contextmenu
+snippet contextm "jQuery event contextmenu" w
+contextmenu(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+
+endsnippet
+
+# .dblclick
+snippet dbclick "jQuery event dblclick" w
+dblclick(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+
+endsnippet
+
+# .die
+snippet die "jQuery event die" w
+die('${1:event}', ${2:function})
+endsnippet
+
+# .focus
+snippet focus "jQuery event focus" w
+focus(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .focusIn
+snippet focusin "jQuery event focusInt" w
+focusIn(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .focusOut
+snippet focusout "jQuery event focusOut" w
+focusOut(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .hover
+snippet hover "jQuery event hover" w
+hover(${1:function(){
+	${2}
+}}${3:, function(){
+	${4}
+}})${0}
+endsnippet
+
+# $.proxy
+snippet proxy "jQuery event proxy" w
+$.proxy(${1:context}, ${4:function(${5}){
+	${6}
+}}${2:, ${3:arguments}})
+endsnippet
+
+# .keydown
+snippet keydown "jQuery event keydown" w
+keydown(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .keypress
+snippet keypress "jQuery event keypress" w
+keypress(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .keyup
+snippet keyup "jQuery event keyup" w
+keyup(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mousedown
+snippet mdown "jQuery event mousedown" w
+mousedown(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mouseenter
+snippet menter "jQuery event mouseenter" w
+mouseenter(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mouseleave
+snippet mleave "jQuery event mouseleave" w
+mouseleave(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mousemove
+snippet mmove "jQuery event mousemove" w
+mousemove(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mouseout
+snippet mout "jQuery event mouseout" w
+mouseout(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mouseover
+snippet mover "jQuery event mouseover" w
+mouseover(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .mouseup
+snippet mup "jQuery event mouseup" w
+mouseup(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .off
+snippet off "jQuery event off" w
+off('${1:event}', ${2:selector}${3:, ${4:data}}, ${4:handler})
+endsnippet
+
+# .on
+snippet on "jQuery event on" w
+on('${1:event}', ${2:selector}${3:, ${4:data}}, ${4:handler})
+endsnippet
+
+# .one
+snippet off "jQuery event off" w
+one('${1:event}', ${2:selector}${3:, ${4:data}}, ${4:handler})
+endsnippet
+
+# $(document).ready / $(handler)
+snippet ready "jQuery $(document).ready" b
+$(${1:function(){
+	${0}
+}});
+endsnippet
+
+# .resize
+snippet resize "jQuery event resize" w
+resize(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .scroll
+snippet scroll "jQuery event scroll" w
+scroll(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .select
+snippet select "jQuery event select" w
+select(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .submit
+snippet submit "jQuery event submit" w
+submit(${1:eventData}${2:, }${3:function(${4:eData}){
+	${5}
+}})${0}
+endsnippet
+
+# .trigger
+snippet trigger "jQuery event trigger" w
+trigger('${1:event}'${2:, ${3:{${4:parameters}}}})${0}
+endsnippet
+
+# .triggerHandler
+snippet triggerh "jQuery event triggerHandler" w
+triggerHandler('${1:event}'${2:, ${3:{${4:parameters}}}})${0}
+endsnippet
+
+# .unbind
+snippet unbind "jQuery event unbind" w
+unbind('${1:event}','${2:handler}')${0}
+endsnippet
+
+###
+# Forms
+###
+
+# .serialize
+snippet serialize "jQuery serialize" w
+serialize()${0}
+endsnippet
+
+###
+# Internals
+###
+
+# $.error
+snippet jqerror "jQuery $.error" w
+$.error('${1:errorMessage}')${0}
+endsnippet
+
+# .pushStack
+snippet pushstack "jQuery pushStack" w
+pushStack(${1:elements})${0}
+endsnippet
+
+###
+# Manipulation
+###
+
+# .after
+snippet after "jQuery after" w
+after('${1}')${0}
+endsnippet
+
+# .append
+snippet append "jQuery append" w
+append(${1:element})
+endsnippet
+
+# .appendTo
+snippet appendto "jQuery appendTo" w
+appendTo(${2:target})
+endsnippet
+
+# .before
+snippet before "jQuery before" w
+before('${1}')
+endsnippet
+
+# .clone
+snippet clone "jQuery clone" w
+clone(${1:${2:withDataAndEvents}${3:, ${4:deepWithDataAndEvents}}})${0}
+endsnippet
+
+# .detach
+snippet detach "jQuery detach" w
+detach(${1:selector})${0}
+endsnippet
+
+# .empty
+snippet empty "jQuery empty" w
+empty()
+endsnippet
+
+# .innerHeight
+snippet innerh "jQuery innerHeight" w
+innerHeight(${1:value})
+endsnippet
+
+# .prepend
+snippet prep "jQuery prepend" w
+prepend(${1:element})
+endsnippet
+
+# .prependTo
+snippet prepto "jQuery prependTo" w
+prependTo(${1:selector})
+endsnippet
+
+# .remove
+snippet remove "jQuery remove" w
+remove(${1:selector})
+endsnippet
+
+# .replaceAll
+snippet replacea "jQuery replaceAll" w
+replaceAll(${1:selector})
+endsnippet
+
+# .replaceWith
+snippet replacew "jQuery replaceWith" w
+replaceWith(${1:target})
+endsnippet
+
+# .text
+snippet text "jQuery text" w
+text(${1:data})
+endsnippet
+
+# .unwrap
+snippet unwrap "jQuery unwrap" w
+unwrap()${0}
+endsnippet
+
+# .wrap
+snippet wrap "jQuery wrap" w
+wrap(${1:selector})
+endsnippet
+
+# .wrapAll
+snippet wrapa "jQuery wrapAll" w
+wrapAll(${1:selector})
+endsnippet
+
+# .wrapInner
+snippet wrapi "jQuery wrapInner" w
+wrapInner(${1:selector})
+endsnippet
+
+
+###
+# Miscellaneous
+###
+
+# .data
+snippet data "jQuery data" w
+data('${1:key}'${2:, ${3:value}})
+endsnippet
+
+# .each
+snippet each "jQuery each" w
+each(function(${1:i}${2:, ${3:e}}){
+	${4}
+})${0}
+endsnippet
+
+# .get
+snippet get "jQuery get" w
+get(${1:selector})
+endsnippet
+
+# .index
+snippet index "jQuery index" w
+index(${1:from/element})
+endsnippet
+
+# .size
+snippet size "jQuery size" w
+size()
+endsnippet
+
+# .toArray
+snippet toarray "jQuery toArray" w
+toArray()
+endsnippet
+
+###
+# Offset
+###
+
+# .offsetParent
+snippet offsetp "jQuery offsetParent" w
+offsetParent()
+endsnippet
+
+###
+# Traversing
+###
+
+# .add
+snippet add "jQuery add" w
+add(${1:selector/elements/html})
+endsnippet
+
+# .addBack
+snippet addb "jQuery addBack" w
+addBack(${1:selector})
+endsnippet
+
+# .children
+snippet children "jQuery children" w
+children(${1:selector})
+endsnippet
+
+# .closest
+snippet closest "jQuery closest" w
+closest(${1:selector})
+endsnippet
+
+# .has
+snippet has "jQuery has" w
+has(${1:selector})
+endsnippet
+
+# .is
+snippet is "jQuery is" w
+is('${1:selector}')
+endsnippet
+
+# .last
+snippet last "jQuery last" w
+last()
+endsnippet
+
+# .map
+snippet map "jQuery map" w
+map(function(${1:index}${2:, ${3:element}}){
+	${4}
+})${0}
+endsnippet
+
+# .next
+snippet next "jQuery next" w
+next(${1:selector})
+endsnippet
+
+# .nextAll
+snippet nexta "jQuery nextAll" w
+nextAll(${1:selector})
+endsnippet
+
+# .nextUntil
+snippet nextu "jQuery nextUntil" w
+nextUntil(${1:selector}, ${2:filter/element})
+endsnippet
+
+# .not
+snippet not "jQuery not" w
+not(${1:selector})
+endsnippet
+
+# .contents
+snippet contents "jQuery contents" w
+contents()
+endsnippet
+
+# .end
+snippet end "jQuery end" w
+end()
+endsnippet
+
+# .eq
+snippet eq "jQuery eq" w
+eq(${1:index})
+endsnippet
+
+# .filter
+snippet filter "jQuery filter" w
+filter(${1:selector/function})
+endsnippet
+
+# .find
+snippet find "jQuery find" w
+find(${1:selector})
+endsnippet
+
+# .first
+snippet first "jQuery first" w
+first()
+endsnippet
+
+# .parent
+snippet parent "jQuery parent" w
+parent(${1:selector})
+endsnippet
+
+# .parents
+snippet parents "jQuery parents" w
+parents(${1:selector})
+endsnippet
+
+# .parentsUntil
+snippet parentsu "jQuery parentsUntil" w
+parentsUntil(${1:selector}, ${2:filter})
+endsnippet
+
+# .prev
+snippet prev "jQuery prev" w
+prev(${1:selector})
+endsnippet
+
+# .prevAll
+snippet preva "jQuery prevAll" w
+prevAll(${1:selector})
+endsnippet
+
+# .prevUntil
+snippet prevu "jQuery prevUntil" w
+prevUntil(${1:selector}, ${2:filter})
+endsnippet
+
+# .siblings
+snippet sib "jQuery siblings" w
+siblings(${1:selector})
+endsnippet
+
+# .slice
+snippet slice "jQuery slice" w
+slice(${1:start}, ${2:end})
+endsnippet
+
+###
+# Utilities
+###
+
+# $.contains
+snippet jqcontains "jQuery $.contains" w
+$.contains(${1:container}, ${2:contained})
+endsnippet
+
+# $.dequeue
+snippet jqdeque "jQuery $.dequeue" b
+$.dequeue(${1:element}, ${2:queueName})
+endsnippet
+
+# $.each
+snippet jqeach "jQuery $.each" b
+$.each(${1:obj/array}, ${2:callback})
+endsnippet
+
+# $.extend
+snippet jqext "jQuery $.extend" b
+$.extend(${1:target}, ${2:objs})
+endsnippet
+
+# $.globalEval
+snippet jqglobaleval "jQuery $.globalEval" b
+$.globalEval(${1:code})
+endsnippet
+
+# $.grep
+snippet jqgrep "jQuery $.grep" b
+$.grep(${1:array}, function(${2:element}${3:, ${4:index}}){
+	${5}
+}, ${6:true/false})${0}
+endsnippet
+
+# $.inArray
+snippet jqinarr "jQuery $.inArray" w
+$.inArray('${1:value}', ${2:array}${3:, ${4:fromIndex}})
+endsnippet
+
+# $.isArray
+snippet jqisarr "jQuery $.isArray" w
+$.isArray(${1:arr})
+endsnippet
+
+# $.isEmptyObject
+snippet jqisemptyobj "jQuery $.isEmptyObject" w
+$.isEmptyObject(${1:obj})
+endsnippet
+
+# $.isFunction
+snippet jqisfun "jQuery $.isFunction" w
+$.isFunction(${1:function})
+endsnippet
+
+# $.isNumeric
+snippet jqisnum "jQuery $.isNumeric" w
+$.isNumeric(${1:number})
+endsnippet
+
+# $.isPlainObject
+snippet jqisobj "jQuery $.isPlainObject" w
+$.isPlainObject(${1:obj})
+endsnippet
+
+# $.isWindow
+snippet jqiswindow "jQuery $.isWindow" w
+$.isWindow(${1:window})
+endsnippet
+
+# $.isXMLDoc
+snippet jqisxml "jQuery $.isXMLDoc" w
+$.isXMLDoc(${1:node})
+endsnippet
+
+# $.makeArray
+snippet jqtoarray "jQuery $.makeArray" w
+$.makeArray(${1:obj})
+endsnippet
+
+# $.map
+snippet jqmap "jQuery $.map" w
+$.map(${1:array}, function(${2:obj}, ${3:index}){
+	${4}
+})${0}
+endsnippet
+
+# $.merge
+snippet jqmerge "jQuery $.merge" w
+$.merge(${1:first}, ${2:second})
+endsnippet
+
+# $.noop
+snippet jqnoop "jQuery $.noop" w
+$.noop()
+endsnippet
+
+# $.now
+snippet jqnow "jQuery $.now" w
+$.now()
+endsnippet
+
+# $.parseHTML
+snippet jqparseh "jQuery $.parseHTML" w
+$.parseHTML(${1:data}${2:, ${3:document}${4:, ${5:keepScripts(true/false)}}})
+endsnippet
+
+# $.parseJSON
+snippet jqparsej "jQuery $.parseJSON" w
+$.parseJSON(${1:json})
+endsnippet
+
+# $.parseXML
+snippet jqparsexml "jQuery $.parseXML" w
+$.parseXML(${1:xml})
+endsnippet
+
+# $.trim
+snippet jqtrim "jQuery $.trim" w
+$.trim(${1:data})
+endsnippet
+
+# $.type
+snippet jqtype "jQuery $.type" w
+$.type(${1:data})
+endsnippet
+
+# $.unique
+snippet jquniq "jQuery $.unique" w
+$.unique(${1:array})
+endsnippet
+
+# $.uniqueSort
+snippet jquniqs "jQuery $uniqueSort" w
+$.uniqueSort(${1:array})
+endsnippet
+
+

@@ -1,0 +1,10 @@
+nvim/.nvim/plugged
+nvim/.nvim/autoload
+nvim/.nvim/spell
+vim/.vim/plugged
+vim/.vim/autoload
+vim/.vim/spell
+.netrwhist
+node_modules
+*.swp
+*%*
