@@ -1,3 +1,77 @@
 {
-  "esversion": 6
+  // Enforcing
+
+   "bitwise":  false,     // true: Prohibits the use of bitwise operators (&, |, ^, ~, etc)
+    "curly":   true,      // true: Requires to always put { } for every block
+   "eqeqeq":   true,      // true: Requires triple equals `===` for comparison
+  "esversion": 6,         // {3,5,6}: Specifies the ECMAScript version
+  "forin": false,         // true: Requires filterin for..in loops with `obj.hasOwnProperty`
+  "freeze": true,         // true: Prohibits overwriting prototype of native objects (Array, Date...)
+  "funcscope": true,       // true: Supresses warning about declaring 'var foo' inside if, for, while..
+  "futurehostile": true,  // true: Enable warnings about using identifiers defined in future versions of JS
+  "iterator": false,      // true: Supresses warnings about the `__iterator__` property
+  "latedef": false,       // true: Requires variables/functions to be defined before being used
+  "maxcomplexity": false, // {int}: Max number statements per function (Cyclomatic complexity)
+  "maxdepth": false,      // {int}: Max depth of nested block (within functions)
+  "maxerr": 50,           // {int}: Maximum error before stopping
+  "maxparams": false,     // {int}: Max number of formal parameters allowed per function
+  "maxstatements": false, // {int}: Max number statements per function
+  "noarg": true,          // true: Prohibits the use of arguments.calle and arguments.caller
+  "nocomma": true,        // true: Prohibits the use of the comma operator
+  "nonbsp": true,         // true: Prohibits "non-breaking whitespace" characters
+  "nonew": false,         // true: Prohibits use of constructor without storing in variable
+  "notypeof": false,      // true: Supresses warning about invalid `typeof` operator values
+  "predef": false,        // {obj}: ALlows controlling which variable are implicitly defined in the environment
+  "shadow": true,         // {boolean,inner,outer}: Allows re-define variables later in code
+  "singleGroups": false,  // true: Prohibits use of () where isn't strictly required
+  "strict": true,         // true: Requires lal functions run in ES5 Strict mode
+  "undef": true,          // true: Requires all non-global variables to be declared
+  "unused": true,         // {boolean,vars,strict}: Complains when never use variables
+  "varstmt": false,       // true: Prohibits use `var x;` except `let` and `const`
+
+  // Relaxing options
+
+  "asi": false,           // true: Allows missing semicolons
+  "boss": false,          // true: Alows assignments in comparisons e.g.`if (a = 10) {}`
+  "debug": false,         // true: ALlows `debugger` statements
+  "elision": false,       // true: Allows to use ES3 elision e.g [1,,,4,,7]
+  "eqnull": false,        // true: Allows to ` == null` and ` == undefined` instead of `===`
+  "evil": false,          // true: Allows to use `eval`
+  "expr": false,          // true: Allows to use `ExpressionStatement` as Programs
+  "lastsemic": false,     // true: Allows to missing semicolon at the last sentence of block
+  "loopfunc": true,       // true: Allows to declare functions inside loops
+  "moz": false,           // true: Allow Mozilla JavaScript extensions
+  "noyield": false,       // true: Allows not using `yield` inside generator functions
+  "proto": false,         // true: Allows to use `__proto__`
+  "scripturl": false,     // true: Allows to use scrip-targeted URLs e.g `javascript:...`
+  "supernew": false,      // true: Allows to use `new function() { ... }` and `new Object`
+  "validthis": false,     // true: Allows to use `this` in a non-constructor function
+  "withstmt": false,     // true: Allows to use `with` statement
+
+  // Environments
+  "browser": true,        // true: Define globals like `document`, `navigator`, `FileReader` ...
+  "browserify": true,     // true: Define global exposed by Browserify
+  "couch": false,         // true: Define globals exposed by CouchDB
+  "devel": true,          // true: Define globals like `console`, `alert`
+  "dojo": false,          // true: Define globals exposed by Dojo
+  "jasmine": true,        // true: Define globals exposed by Jasmine
+  "jquery": true,         // true: Define `$`, `jQuery` globals exposed by jQuery
+  "mocha": true,          // true: Define globals exposed by BDD and TDD UIs of Mocha
+  "module": true,         // true: Define globals used by ES6 module
+  "mootools": false,       // true: Define globals exposed by MooTools
+  "node": true,           // true: Define globals used by Node
+  "nonstandard": false,   // true: Define `escape` and `unescape` globals
+  "phantom": false,       // true: Define globals exposed by PhantomJS
+  "prototypejs": false,   // true: Define globals exposed by Prototype.js
+  "qunit": false,         // true: Define globals exposed by QUnit
+  "rhino": false,         // true: Define globals exposed by Rhino
+  "shelljs": false,       // true: Define globals exposed by ShellJS
+  "typed": false,         // true: Define globals for typed array constructors
+  "worker": true,         // true: Define globals used by Web Workers
+  "wsh": false,           // true: Define globals used by Windows Script Host
+  "yui": false,           // true: Define globals exposed by the YUI Framework
+
+  // Custom globals       // {obj}: Defines a list of global variables not formalliy defined in source code
+  "globals": {}
+
 }
